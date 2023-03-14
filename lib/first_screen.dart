@@ -8,6 +8,7 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String mytext = "";
+    String fourScreenText = '';
 
     return Scaffold(
       appBar: AppBar(
@@ -18,8 +19,7 @@ class FirstScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(28.0),
             child: TextField(
-              onChanged: (newText)
-                {
+                onChanged: (newText) {
                   mytext = newText;
                 },
                 decoration: InputDecoration(
@@ -31,17 +31,14 @@ class FirstScreen extends StatelessWidget {
                         borderRadius:
                             BorderRadius.all(Radius.circular(10.0))))),
           ),
-
-
-         SizedBox(
-           height: 20.00,
-         ),
+          SizedBox(
+            height: 20.00,
+          ),
           Center(
-
             child: TextButton(
               onPressed: () {
                 context.router.push(SecondScreen(name: mytext, id: 1));
-            mytext="";
+                mytext = "";
               },
               style: TextButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -58,7 +55,7 @@ class FirstScreen extends StatelessWidget {
             child: Container(
               child: TextButton(
                 onPressed: () {
-                  context.router.push(ThirdScreen());
+                  context.router.pushNamed('Third');
                 },
                 style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
@@ -75,9 +72,14 @@ class FirstScreen extends StatelessWidget {
           Center(
             child: Container(
               child: TextButton(
-                onPressed: () {
-                  context.router.push(FourtScreen());
+                // Scaffold.of(_context).showSnackBar(SnackBar(content: Text("$result"),duration: Duration(seconds: 3),));
+
+                onPressed: () async {
+                  var result = await context.router.push(FourtScreen());
+                  print(result);
+                  fourScreenText = result.toString();
                 },
+                // print
                 style: TextButton.styleFrom(
                     backgroundColor: Colors.blue,
                     padding: EdgeInsets.all(16.0),
@@ -87,6 +89,7 @@ class FirstScreen extends StatelessWidget {
               ),
             ),
           ),
+          // Text("fourScreenText")
         ],
       ),
     );

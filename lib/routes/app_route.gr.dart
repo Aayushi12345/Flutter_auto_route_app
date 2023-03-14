@@ -64,11 +64,11 @@ class AppRouter extends _i5.RootStackRouter {
         ),
         _i5.RouteConfig(
           SecondScreen.name,
-          path: '/second-screen',
+          path: 'Second',
         ),
         _i5.RouteConfig(
           ThirdScreen.name,
-          path: '/third-screen',
+          path: 'Third',
         ),
         _i5.RouteConfig(
           FourtScreen.name,
@@ -98,7 +98,7 @@ class SecondScreen extends _i5.PageRouteInfo<SecondScreenArgs> {
     required int id,
   }) : super(
           SecondScreen.name,
-          path: '/second-screen',
+          path: 'Second',
           args: SecondScreenArgs(
             key: key,
             name: name,
@@ -134,7 +134,7 @@ class ThirdScreen extends _i5.PageRouteInfo<void> {
   const ThirdScreen()
       : super(
           ThirdScreen.name,
-          path: '/third-screen',
+          path: 'Third',
         );
 
   static const String name = 'ThirdScreen';

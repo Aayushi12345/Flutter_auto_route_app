@@ -11,8 +11,8 @@ import 'package:auto_route_app/third_screen.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: FirstScreen, initial: true),
-    AutoRoute(page: SecondScreen),
-    AutoRoute(page:ThirdScreen),
+    AutoRoute(path:'Second',page: SecondScreen),
+    AutoRoute(path :'Third',page:ThirdScreen),
     AutoRoute(page:FourtScreen),
   ],
 )
