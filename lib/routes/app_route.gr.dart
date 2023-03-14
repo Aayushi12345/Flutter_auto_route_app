@@ -32,9 +32,14 @@ class AppRouter extends _i5.RootStackRouter {
       );
     },
     SecondScreen.name: (routeData) {
+      final args = routeData.argsAs<SecondScreenArgs>();
       return _i5.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i2.SecondScreen(),
+        child: _i2.SecondScreen(
+          key: args.key,
+          name: args.name,
+          id: args.id,
+        ),
       );
     },
     ThirdScreen.name: (routeData) {
@@ -86,14 +91,41 @@ class FirstScreen extends _i5.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.SecondScreen]
-class SecondScreen extends _i5.PageRouteInfo<void> {
-  const SecondScreen()
-      : super(
+class SecondScreen extends _i5.PageRouteInfo<SecondScreenArgs> {
+  SecondScreen({
+    _i6.Key? key,
+    required String name,
+    required int id,
+  }) : super(
           SecondScreen.name,
           path: '/second-screen',
+          args: SecondScreenArgs(
+            key: key,
+            name: name,
+            id: id,
+          ),
         );
 
   static const String name = 'SecondScreen';
+}
+
+class SecondScreenArgs {
+  const SecondScreenArgs({
+    this.key,
+    required this.name,
+    required this.id,
+  });
+
+  final _i6.Key? key;
+
+  final String name;
+
+  final int id;
+
+  @override
+  String toString() {
+    return 'SecondScreenArgs{key: $key, name: $name, id: $id}';
+  }
 }
 
 /// generated route for

@@ -13,7 +13,7 @@ class ThirdScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Third screen")
+            Center(child: Text("Third Screen",style: TextStyle(color: Colors.green,fontSize: 25.00,fontWeight: FontWeight.bold),))
           ],
         ),
       ),

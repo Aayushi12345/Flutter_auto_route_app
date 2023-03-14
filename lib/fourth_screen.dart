@@ -13,7 +13,7 @@ class FourtScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Fourth screen")
+            Center(child: Text("Fourth Screen",style: TextStyle(color: Colors.green,fontSize: 25.00,fontWeight: FontWeight.bold),))
           ],
         ),
       ),

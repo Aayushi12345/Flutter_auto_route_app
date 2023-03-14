@@ -7,26 +7,48 @@ class FirstScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String mytext = "";
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Auto Route"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
-            child: Container(
-              child: TextButton(
-                onPressed: () {
-                  context.router.push(SecondScreen());
+          Padding(
+            padding: const EdgeInsets.all(28.0),
+            child: TextField(
+              onChanged: (newText)
+                {
+                  mytext = newText;
                 },
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    padding: EdgeInsets.all(16.0),
-                    foregroundColor: Colors.black,
-                    textStyle: TextStyle(fontSize: 20)),
-                child: Text('Second Screen'),
-              ),
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    hintText: 'Enter Text',
+                    hintStyle: TextStyle(color: Colors.grey),
+                    border: OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(10.0))))),
+          ),
+
+
+         SizedBox(
+           height: 20.00,
+         ),
+          Center(
+
+            child: TextButton(
+              onPressed: () {
+                context.router.push(SecondScreen(name: mytext, id: 1));
+            mytext="";
+              },
+              style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  padding: EdgeInsets.all(16.0),
+                  foregroundColor: Colors.black,
+                  textStyle: TextStyle(fontSize: 20)),
+              child: Text('Second Screen'),
             ),
           ),
           SizedBox(
