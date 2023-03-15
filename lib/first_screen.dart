@@ -2,13 +2,23 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_route_app/routes/app_route.gr.dart';
 import 'package:flutter/material.dart';
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({Key? key}) : super(key: key);
+class FirstScreen extends StatefulWidget {
+  @override
+  State<FirstScreen> createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
+  String fourScreenText = 'AAYUshi';
 
   @override
   Widget build(BuildContext context) {
+    void getData(String getNewTask) {
+      setState(() {
+        fourScreenText = getNewTask;
+      });
+    }
+
     String mytext = "";
-    String fourScreenText = '';
 
     return Scaffold(
       appBar: AppBar(
@@ -76,8 +86,10 @@ class FirstScreen extends StatelessWidget {
 
                 onPressed: () async {
                   var result = await context.router.push(FourtScreen());
+
+                  getData(result.toString());
+
                   print(result);
-                  fourScreenText = result.toString();
                 },
                 // print
                 style: TextButton.styleFrom(
@@ -89,7 +101,7 @@ class FirstScreen extends StatelessWidget {
               ),
             ),
           ),
-          // Text("fourScreenText")
+          Text(fourScreenText)
         ],
       ),
     );

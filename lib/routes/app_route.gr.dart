@@ -28,7 +28,7 @@ class AppRouter extends _i5.RootStackRouter {
     FirstScreen.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.FirstScreen(),
+        child: _i1.FirstScreen(),
       );
     },
     SecondScreen.name: (routeData) {
